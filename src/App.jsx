@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Navbar from './components/Navbar'
+import Carousel from './components/Carousel'
+import AboutSection from './components/AboutSection'
+import AboutProfile from './components/AboutProfile'
+import AllServices from './components/AllServices'
+import PriceSection from './components/PriceSection'
+import WorkGallery from './components/WorkGallery'
+import BookForm from './components/BookForm'
+import Map from './components/Map'
+import ContactForm from './components/ContactForm'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="w-full">
+      <Navbar />
+      <main>
+        <section id="home">
+          <Carousel />
+          <AboutSection />
+        </section>
+
+        <section id="about" className="scroll-mt-24">
+          <AboutProfile />
+        </section>
+
+        <section id="services" className="scroll-mt-24">
+          <AllServices />
+          <PriceSection />
+        </section>
+
+        <section id="work" className="scroll-mt-24">
+          <WorkGallery />
+        </section>
+
+        <section id="booking" className="scroll-mt-24">
+          <BookForm />
+        </section>
+
+        <section id="contact" className="scroll-mt-24">
+          <Map />
+          <ContactForm />
+        </section>
+      </main>
+    </div>
   )
 }
 
