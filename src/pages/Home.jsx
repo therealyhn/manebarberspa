@@ -21,23 +21,23 @@ function Home() {
           <div className="w-full h-px bg-third/40"></div>
         </section>
 
-        <section id="about" className="scroll-mt-10">
+        <section id="about" className="scroll-mt-18 md:scroll-mt-10">
           <AboutHero />
         </section>
 
-        <section id="services" className="scroll-mt-10">
+        <section id="services" className="scroll-mt-18 md:scroll-mt-10">
           <ServicesWall />
         </section>
 
-        <section id="work" className="scroll-mt-24">
+        <section id="work" className="scroll-mt-18 md:scroll-mt-10">
           <WorkGallery />
         </section>
 
-        <section id="booking" className="scroll-mt-24">
+        <section id="booking" className="scroll-mt-18 md:scroll-mt-10">
           <BookForm />
         </section>
 
-        <section id="contact" className="scroll-mt-24">
+        <section id="contact" className="scroll-mt-18 md:scroll-mt-10">
           <Map />
           <ContactForm />
         </section>

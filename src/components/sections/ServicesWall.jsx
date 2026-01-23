@@ -49,13 +49,13 @@ function ServicesWall() {
 
     return (
         <section ref={ref} className="relative w-full min-h-screen bg-bgprime">
-            <div className="absolute inset-8 border border-frame/40 pointer-events-none"></div>
+            <div className="absolute inset-8 pointer-events-none"></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-10 md:px-20 py-16">
                 <div className="flex flex-col justify-center lg:flex-row gap-10">
                     <div className="lg:w-5/12 flex flex-col justify-center">
                         <div className={`space-y-6 ${isVisible ? 'animate__animated animate__fadeInUp' : 'opacity-0'}`}>
-                            <div className="w-16 h-px bg-accent"></div>
+                            <div className="w-16 h-px bg-black"></div>
                             <p className="text-sm sm:text-lg uppercase tracking-widest text-second font-lato">
                                 Usluge & cenovnik
                             </p>
@@ -72,10 +72,10 @@ function ServicesWall() {
                                 overlayClassName="bg-prime-dark"
                             />
 
-                            <div className="border border-frame/40 rounded-surface shadow-soft-panel bg-panel-light p-6">
+                            <div className="border border-frame/40 rounded-sm p-6">
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="text-lg font-bold uppercase tracking-widest text-third-dark">Cenovnik</span>
-                                    <span className="w-10 h-px bg-accent"></span>
+                                    <span className="w-10 h-px bg-black"></span>
                                 </div>
                                 <div className="flex flex-col gap-6">
                                     {priceGroups.map((group) => (
@@ -98,7 +98,7 @@ function ServicesWall() {
                             {services.map((service) => (
                                 <div
                                     key={service.title}
-                                    className={`group overflow-hidden rounded-surface border border-frame/40 bg-white ${service.className} ${isVisible ? 'animate__animated animate__fadeInUp' : 'opacity-0'
+                                    className={`group overflow-hidden rounded-sm border border-frame/40 bg-white ${service.className} ${isVisible ? 'animate__animated animate__fadeInUp' : 'opacity-0'
                                         }`}
                                 >
                                     <div className="relative h-28 sm:h-32 md:h-36">
@@ -109,11 +109,10 @@ function ServicesWall() {
                                         />
                                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                     </div>
-                                    <div className="px-4 py-4 flex items-center justify-between">
+                                    <div className="px-4 py-4 flex items-center  justify-center">
                                         <h3 className="text-lg font-semibold text-prime-dark font-prata">
                                             {service.title}
                                         </h3>
-                                        <span className="text-xs uppercase tracking-widest text-second">Detalji</span>
                                     </div>
                                 </div>
                             ))}
