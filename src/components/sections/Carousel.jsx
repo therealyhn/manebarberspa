@@ -12,7 +12,7 @@ import slide4 from '../../assets/slide-1-b.jpg';
 
 function Carousel() {
   return (
-    <div className="w-full h-screen overflow-hidden bg-prime-dark">
+    <div className="relative w-full h-screen overflow-hidden bg-prime-dark">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={30}

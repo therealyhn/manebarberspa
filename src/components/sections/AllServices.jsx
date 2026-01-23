@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react'
+﻿import useInViewOnce from '../../hooks/useInViewOnce'
 import service1 from '../../assets/service-10.webp'
 import service3 from '../../assets/service-3.png'
 import service4 from '../../assets/service-4.jpg'
@@ -14,33 +14,7 @@ import SectionHeading from '../ui/SectionHeading'
 import ServiceCard from '../ui/ServiceCard'
 
 const ServicesSection = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(entry.target);
-                }
-            },
-            {
-                threshold: 0.4
-            }
-        );
-
-        const currentRef = sectionRef.current;
-        if (currentRef) {
-            observer.observe(currentRef);
-        }
-
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
-    }, []);
+    const { ref, isVisible } = useInViewOnce({ threshold: 0.4 })
 
     const services = [
         { image: service1, title: "Klasik", animation: "fadeInLeft" },
@@ -54,11 +28,11 @@ const ServicesSection = () => {
     ];
 
     return (
-        <div ref={sectionRef} className="w-full px-2 sm:px-4 md:px-8 lg:px-20 py-6 md:py-16 
+        <div ref={ref} className="w-full px-2 sm:px-4 md:px-8 lg:px-20 py-6 md:py-16 
             flex flex-col items-center justify-center bg-bgprime border-y-2 border-light-gray">
 
             <SectionHeading
-                subtitle="Iskusite vrhunsko sređivanje"
+                subtitle="Iskusite vrhunsko sredenje"
                 title="Moje usluge"
                 imageSrc={mustach}
                 imageAlt="heading divider"
@@ -77,7 +51,7 @@ const ServicesSection = () => {
             {/* Services Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 
             md:gap-6 lg:gap-8 w-full max-w-7xl">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <ServiceCard
                         key={service.title}
                         image={service.image}
@@ -96,7 +70,7 @@ const ServicesSection = () => {
                 }`}>
                 <CtaButton
                     href="#booking"
-                    label="Zakaži termin"
+                    label="Zakazi termin"
                     className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
                     overlayClassName="bg-prime-dark"
                 />

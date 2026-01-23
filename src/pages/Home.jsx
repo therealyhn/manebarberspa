@@ -1,7 +1,6 @@
-import Navbar from '../components/layout/Navbar'
+﻿import Navbar from '../components/layout/Navbar'
 import Carousel from '../components/sections/Carousel'
-import AboutSection from '../components/sections/AboutSection'
-import AboutProfile from '../components/sections/AboutProfile'
+import AboutHero from '../components/sections/AboutHero'
 import AllServices from '../components/sections/AllServices'
 import PriceSection from '../components/sections/PriceSection'
 import WorkGallery from '../components/sections/WorkGallery'
@@ -17,11 +16,14 @@ function Home() {
       <main>
         <section id="home">
           <Carousel />
-          <AboutSection />
         </section>
 
-        <section id="about" className="scroll-mt-24">
-          <AboutProfile />
+        <section aria-hidden="true" className="w-full bg-prime-dark">
+          <div className="w-full h-px bg-third/40"></div>
+        </section>
+
+        <section id="about" className="scroll-mt-10">
+          <AboutHero />
         </section>
 
         <section id="services" className="scroll-mt-24">
