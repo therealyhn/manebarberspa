@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import logo from '../assets/logo-full-text.png'
-import about1 from '../assets/about-1.jpg'
-import about2 from '../assets/about-2.jpg'
-import about3 from '../assets/about-3.jpg'
-import AboutButton from './AboutButton'
+import logo from '../../assets/logo-full-text.png'
+import about1 from '../../assets/about-1.jpg'
+import about2 from '../../assets/about-2.jpg'
+import about3 from '../../assets/about-3.jpg'
+import AboutButton from '../ui/AboutButton'
 import 'animate.css'
 
 function AboutSection() {

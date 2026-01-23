@@ -1,6 +1,6 @@
-import logo from '../assets/logo.png'
-import instagram from '../assets/instagram.png'
-import tiktok from '../assets/tiktok.png'
+import logo from '../../assets/logo.png'
+import instagram from '../../assets/instagram.png'
+import tiktok from '../../assets/tiktok.png'
 
 function Footer() {
     return (

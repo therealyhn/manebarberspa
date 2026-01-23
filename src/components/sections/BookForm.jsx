@@ -1,4 +1,4 @@
-import bookImg from '../assets/book.jpg';
+import bookImg from '../../assets/book.jpg';
 import { useState } from 'react';
 
 function BookForm() {

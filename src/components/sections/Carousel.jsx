@@ -2,12 +2,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import '../styles/Carousel.css';
-import BookButton from './BookButton';
+import '../../styles/Carousel.css';
+import BookButton from '../ui/BookButton';
 import 'animate.css';
-import slide1 from '../assets/slide-1.jpg';
-import slide2 from '../assets/slide-2.jpg';
-import slide3 from '../assets/slide-3.jpg';
+import slide1 from '../../assets/slide-1.jpg';
+import slide2 from '../../assets/slide-2.jpg';
+import slide3 from '../../assets/slide-3.jpg';
 
 function Carousel() {
   return (

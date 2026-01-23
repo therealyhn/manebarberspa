@@ -1,4 +1,4 @@
-import mustach from '../assets/heading-line.png'
+import mustach from '../../assets/heading-line.png'
 
 function PriceSection() {
     return (

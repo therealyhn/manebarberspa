@@ -1,4 +1,4 @@
-import mapMarker from "../assets/logo-full-text.png"
+import mapMarker from "../../assets/logo-full-text.png"
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import icon from 'leaflet/dist/images/marker-icon.png';

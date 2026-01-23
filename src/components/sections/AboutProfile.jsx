@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import 'animate.css'
-import profileImg from '../assets/profile.jpg'
+import profileImg from '../../assets/profile.jpg'
 
 function AboutProfile() {
     const [isVisible, setIsVisible] = useState(false);

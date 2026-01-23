@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 function WorkGallery() {
     // Vite's dynamic import
-    const images = Object.values(import.meta.glob('../assets/gallery/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' }));
+    const images = Object.values(import.meta.glob('../../assets/gallery/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' }));
     const [showAll, setShowAll] = useState(false);
     const displayedImages = showAll ? images : images.slice(0, 8);
     return (
