@@ -1,8 +1,7 @@
 ﻿import Navbar from '../components/layout/Navbar'
 import Carousel from '../components/sections/Carousel'
 import AboutHero from '../components/sections/AboutHero'
-import AllServices from '../components/sections/AllServices'
-import PriceSection from '../components/sections/PriceSection'
+import ServicesWall from '../components/sections/ServicesWall'
 import WorkGallery from '../components/sections/WorkGallery'
 import BookForm from '../components/sections/BookForm'
 import Map from '../components/sections/Map'
@@ -26,9 +25,8 @@ function Home() {
           <AboutHero />
         </section>
 
-        <section id="services" className="scroll-mt-24">
-          <AllServices />
-          <PriceSection />
+        <section id="services" className="scroll-mt-10">
+          <ServicesWall />
         </section>
 
         <section id="work" className="scroll-mt-24">

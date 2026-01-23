@@ -2,7 +2,7 @@
     return (
         <a
             href={href}
-            className={`relative overflow-hidden group inline-block ${className}`}
+            className={`relative overflow-hidden group border-[1px] border-prime inline-block ${className}`}
         >
             <span className={`relative z-10 ${textClassName}`}>{label}</span>
             <span
