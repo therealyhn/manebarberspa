@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import 'animate.css'
 import profileImg from '../../assets/profile.jpg'
+import CtaButton from '../ui/CtaButton'
+import StatItem from '../ui/StatItem'
 
 function AboutProfile() {
     const [isVisible, setIsVisible] = useState(false);
@@ -66,14 +68,8 @@ function AboutProfile() {
 
                     <div className={`flex gap-8 pt-4 
                         ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-1s' : 'opacity-0'}`}>
-                        <div>
-                            <h3 className="text-3xl font-bold text-prime font-prata">4+</h3>
-                            <p className="text-second font-lato">Godina iskustva</p>
-                        </div>
-                        <div>
-                            <h3 className="text-3xl font-bold text-prime font-prata">300+</h3>
-                            <p className="text-second font-lato">Zadovoljnih Klijenata</p>
-                        </div>
+                        <StatItem value="4+" label="Godina iskustva" />
+                        <StatItem value="300+" label="Zadovoljnih Klijenata" />
                     </div>
                     <div className={`flex items-center gap-4 pt-6 
                         ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-1s' : 'opacity-0'}`}>
@@ -92,14 +88,12 @@ function AboutProfile() {
                                 Pratite me na Instagramu
                             </a>
                         </div>
-                        <a
+                        <CtaButton
                             href="/mywork"
-                            className="px-6 py-2 bg-prime text-white rounded hover:bg-prime/90 
-                            transition-colors font-prata
-                            text-center"
-                        >
-                            Pogledajte Moje Radove
-                        </a>
+                            label="Pogledajte Moje Radove"
+                            className="px-6 py-2 bg-prime text-white rounded uppercase text-sm"
+                            overlayClassName="bg-prime-dark"
+                        />
                     </div>
                 </div>
             </div>

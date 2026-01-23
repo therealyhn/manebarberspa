@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import BookButton from '../ui/BookButton'
+﻿import { useState } from 'react'
+import CtaButton from '../ui/CtaButton'
 import logo from '../../assets/logo-text.png';
 import 'animate.css';
 
@@ -33,7 +33,7 @@ function Navbar() {
                 <div className="hidden lg:flex items-center gap-8">
                     <ul className="flex gap-8 uppercase">
                         <li><a href="#home" onClick={handleNavClick} className="text-light-gray hover:text-prime
-                         transition-all duration-300 text-sm font-semibold font-prata uppercase">Pocetna</a></li>
+                         transition-all duration-300 text-sm font-semibold font-prata uppercase">Početna</a></li>
                         <li><a href="#about" onClick={handleNavClick} className="text-light-gray hover:text-prime
                          transition-all duration-300 text-sm font-semibold font-prata uppercase">O meni</a></li>
                         <li><a href="#services" onClick={handleNavClick} className="text-light-gray hover:text-prime
@@ -43,7 +43,12 @@ function Navbar() {
                         <li><a href="#contact" onClick={handleNavClick} className="text-light-gray hover:text-prime
                          transition-all duration-300 text-sm font-semibold font-prata uppercase">Kontakt</a></li>
                     </ul>
-                    <BookButton />
+                    <CtaButton
+                        href="#booking"
+                        label="Zakaži termin"
+                        className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
+                        overlayClassName="bg-prime-dark"
+                    />
                 </div>
 
                 <div
@@ -55,7 +60,7 @@ function Navbar() {
                     <ul className="flex flex-col items-center py-4">
                         <li className="py-2"><a href="#home" onClick={handleNavClick}
                             className="text-light-gray hover:text-white transition-all duration-300 
-                        text-sm font-bold font-prata uppercase">Pocetna</a></li>
+                        text-sm font-bold font-prata uppercase">Početna</a></li>
                         <li className="py-2"><a href="#about" onClick={handleNavClick}
                             className="text-light-gray hover:text-white transition-all duration-300 
                         text-sm font-bold font-prata uppercase">O meni</a></li>
@@ -68,7 +73,14 @@ function Navbar() {
                         <li className="py-2"><a href="#contact" onClick={handleNavClick}
                             className="text-light-gray hover:text-white transition-all duration-300 
                         text-sm font-bold font-prata uppercase">Kontakt</a></li>
-                        <li className="py-2"><BookButton /></li>
+                        <li className="py-2">
+                            <CtaButton
+                                href="#booking"
+                                label="Zakaži termin"
+                                className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
+                                overlayClassName="bg-prime-dark"
+                            />
+                        </li>
                     </ul>
                 </div>
             </div>

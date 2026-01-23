@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import logo from '../../assets/logo-full-text.png'
 import about1 from '../../assets/about-1.jpg'
 import about2 from '../../assets/about-2.jpg'
 import about3 from '../../assets/about-3.jpg'
-import AboutButton from '../ui/AboutButton'
+import CtaButton from '../ui/CtaButton'
 import 'animate.css'
 
 function AboutSection() {
@@ -64,7 +64,12 @@ function AboutSection() {
                     Uz moju stručnost i pažnju prema detaljima, vaš izgled je u sigurnim rukama.
                 </p>
                 <div className={`mt-10 ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-1s' : 'opacity-0'}`}>
-                    <AboutButton />
+                    <CtaButton
+                        href="#about"
+                        label="Više informacija"
+                        className="bg-prime text-white px-8 py-3 rounded-sm uppercase text-sm"
+                        overlayClassName="bg-second-dark"
+                    />
                 </div>
             </div>
 

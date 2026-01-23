@@ -1,9 +1,9 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+﻿import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '../../styles/Carousel.css';
-import BookButton from '../ui/BookButton';
+import CtaButton from '../ui/CtaButton';
 import 'animate.css';
 import slide1 from '../../assets/slide-1.jpg';
 import slide2 from '../../assets/slide-2.jpg';
@@ -43,7 +43,12 @@ function Carousel() {
                   Najbolje frizerske usluge u gradu</p>
                 <p className="text-sm sm:text-sm md:text-lg mb-4 sm:mb-8 max-w-xl text-second font-lato">
                   Profesionalni frizer za modernog džentlmena</p>
-                <BookButton />
+                <CtaButton
+                  href="#booking"
+                  label="Zakaži termin"
+                  className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
+                  overlayClassName="bg-prime-dark"
+                />
               </div>
             </div>
           </div>
@@ -68,7 +73,12 @@ function Carousel() {
                   Precizni rezovi i tradicionalne tehnike</p>
                 <p className="text-sm sm:text-sm md:text-lg mb-4 sm:mb-8 max-w-xl text-second font-lato">
                   Kreiranje savršenog stila za svakog klijenta</p>
-                <BookButton />
+                <CtaButton
+                  href="#booking"
+                  label="Zakaži termin"
+                  className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
+                  overlayClassName="bg-prime-dark"
+                />
               </div>
             </div>
           </div>
@@ -92,7 +102,12 @@ function Carousel() {
                   Prepustite se našim jedinstvenim tretmanima</p>
                 <p className="text-sm sm:text-sm md:text-lg mb-4 sm:mb-8 max-w-xl text-second font-lato">
                   Podignite svoj stil uz naše vrhunske usluge</p>
-                <BookButton />
+                <CtaButton
+                  href="#booking"
+                  label="Zakaži termin"
+                  className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
+                  overlayClassName="bg-prime-dark"
+                />
               </div>
             </div>
           </div>
