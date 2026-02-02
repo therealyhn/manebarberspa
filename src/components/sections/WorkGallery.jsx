@@ -50,16 +50,16 @@ function WorkGallery() {
     }
 
     return (
-        <section className="relative w-full h-screen bg-second-dark text-white overflow-hidden">
+        <section className="relative w-full h-screen bg-bgprime text-white overflow-hidden">
             <div className="absolute inset-8 pointer-events-none"></div>
             <div className="relative z-10 h-full flex flex-col justify-center gap-6 px-4 sm:px-10 md:px-20">
                 <div className="max-w-2xl">
                     <div className="w-16 h-px bg-accent mb-4"></div>
-                    <p className="text-xs sm:text-sm uppercase tracking-widest text-second font-lato">Galerija radova</p>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-prata uppercase text-third">
+                    <p className="text-xs sm:text-sm uppercase tracking-widest text-prime-dark font-lato">Galerija radova</p>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-prata uppercase text-prime-dark">
                         Trenuci preciznosti
                     </h2>
-                    <p className="text-sm sm:text-base text-third/80 font-lato mt-2">
+                    <p className="text-sm sm:text-base text-third-dark/80 font-lato mt-2">
                         Izaberi rad i otvori ga u punom prikazu.
                     </p>
                 </div>

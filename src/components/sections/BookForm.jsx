@@ -8,7 +8,7 @@ function BookForm() {
                 <div className="flex flex-col md:flex-row bg-transparent p-4 md:p-8 rounded-lg shadow-lg w-full max-w-7xl">
                     <div className="w-full md:w-2/5 md:pr-4 flex flex-col items-center justify-center text-center">
                         <h2 className="text-xl md:text-3xl font-bold text-white mb-6 font-prata">
-                            Skeniraj QR kod i zakazi termin
+                            Skeniraj QR kod i zakazi termin preko nase aplikacije
                         </h2>
                         <div className="w-full h-64 md:h-72 flex items-center justify-center relative border border-white/20 bg-black/30 backdrop-blur-sm">
                             <div className="absolute inset-4 border border-white/10 pointer-events-none"></div>
