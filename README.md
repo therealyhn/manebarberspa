@@ -1,16 +1,67 @@
-# React + Vite
+﻿# Mane SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single-page site for Mane SPA with a Sanity-powered content layer.
 
-Currently, two official plugins are available:
+## Tech
+- React + Vite
+- Tailwind CSS
+- Sanity (content studio in `/sanity`)
+- Swiper, React-Leaflet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local setup
+1) Install frontend deps
+```
+npm install
+```
 
-## React Compiler
+2) Create env file (root)
+```
+# .env.local
+VITE_SANITY_PROJECT_ID=your_project_id
+VITE_SANITY_DATASET=production
+VITE_WEB3FORMS_KEY=your_web3forms_key
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3) Run frontend
+```
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Sanity Studio
+The studio lives in `sanity/` and defines all schemas.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1) Install studio deps
+```
+cd sanity
+npm install
+```
+
+2) Run studio
+```
+npm run dev
+```
+
+## Content model (Sanity)
+Schemas are in `sanity/schemaTypes/`.
+
+- `hero`:
+  - slide image + eyebrow/title/subtitle/paragraphs
+  - buttons are fixed in code
+- `servicesWall`:
+  - service name, price, image, category
+  - layout/styles stay in code
+- `aboutHero`:
+  - background image + texts
+  - eyebrow + logo are fixed in code
+- `workGallery`:
+  - gallery items with image + title
+
+## Project structure
+- `src/components/sections/` section components
+- `src/components/ui/` reusable UI components (Lightbox, buttons, etc.)
+- `src/styles/` custom CSS (gallery loop, etc.)
+- `src/lib/sanity.js` Sanity client + image helper
+
+## Notes
+- Image optimization is handled via Sanity image URLs (responsive sizes + lazy loading).
+- Lightbox is customized to match the `ljusaitodos` project behavior.
