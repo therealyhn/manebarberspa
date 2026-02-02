@@ -5,7 +5,6 @@ import useInViewOnce from '../../hooks/useInViewOnce'
 import { sanityClient, urlFor } from '../../lib/sanity'
 import 'animate.css'
 import fallbackLogo from '../../assets/logo-full-white.png'
-import fallbackBg from '../../assets/profile.jpg'
 
 const fallbackContent = {
     backgroundImage: fallbackBg,

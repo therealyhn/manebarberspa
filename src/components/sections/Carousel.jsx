@@ -6,10 +6,6 @@ import 'swiper/css/pagination';
 import '../../styles/Carousel.css';
 import CtaButton from '../ui/CtaButton';
 import 'animate.css';
-import slide1 from '../../assets/slide-1.jpg';
-import slide2 from '../../assets/slide-2.jpg';
-import slide3 from '../../assets/slide-3.jpg';
-import slide4 from '../../assets/slide-1-b.jpg';
 import { sanityClient, urlFor } from '../../lib/sanity';
 
 const fallbackSlides = [

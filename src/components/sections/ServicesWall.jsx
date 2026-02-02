@@ -1,12 +1,6 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
 import useInViewOnce from '../../hooks/useInViewOnce'
 import CtaButton from '../ui/CtaButton'
-import service1 from '../../assets/service-10.webp'
-import service2 from '../../assets/service-2.png'
-import service3 from '../../assets/service-3.png'
-import service4 from '../../assets/service-4.jpg'
-import service5 from '../../assets/service-5.jpg'
-import service6 from '../../assets/service-6.png'
 import { sanityClient, urlFor } from '../../lib/sanity'
 
 const fallbackServices = [
