@@ -99,7 +99,7 @@ function ServicesWall() {
                     </div>
 
                     {/* Right Column: Image Grid */}
-                    <div className={`lg:w-7/12 w-full ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-200ms' : 'opacity-0'}`}>
+                    <div className={`hidden lg:block lg:w-7/12 w-full ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-200ms' : 'opacity-0'}`}>
                         <div className="grid grid-cols-3 gap-3 md:gap-4">
                             {services.map((service, idx) => (
                                 <div
