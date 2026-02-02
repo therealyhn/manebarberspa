@@ -1,6 +1,7 @@
-﻿import { useMemo, useState } from 'react'
+﻿import { useMemo, useState, useEffect } from 'react'
 import Lightbox from '../ui/Lightbox'
 import '../../styles/Gallery.css'
+import { sanityClient, urlFor } from '../../lib/sanity'
 
 function formatTitle(path) {
     const file = path.split('/').pop() || ''
@@ -28,8 +29,37 @@ function buildLoopItems(row, minItems = 12) {
 
 function WorkGallery() {
     const [activeIndex, setActiveIndex] = useState(null)
+    const [sanityItems, setSanityItems] = useState([])
 
-    const items = useMemo(() => {
+    useEffect(() => {
+        const fetchGallery = async () => {
+            try {
+                const data = await sanityClient.fetch(
+                    `*[_type == "workGallery"][0]{
+                        items[]{
+                            title,
+                            image
+                        }
+                    }`
+                )
+                if (data?.items?.length) {
+                    setSanityItems(
+                        data.items.map((item, index) => ({
+                            image: item.image,
+                            title: item.title || 'Untitled',
+                            index,
+                        }))
+                    )
+                }
+            } catch (err) {
+                console.error('Sanity gallery fetch failed', err)
+            }
+        }
+
+        fetchGallery()
+    }, [])
+
+    const fallbackItems = useMemo(() => {
         const images = import.meta.glob('../../assets/gallery/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' })
         return Object.entries(images).map(([path, src], index) => ({
             image: src,
@@ -37,6 +67,8 @@ function WorkGallery() {
             index,
         }))
     }, [])
+
+    const items = sanityItems.length ? sanityItems : fallbackItems
 
     const rows = useMemo(() => buildRows(items), [items])
 
@@ -47,6 +79,13 @@ function WorkGallery() {
     }
     const handleNext = () => {
         setActiveIndex((prev) => (prev + 1) % items.length)
+    }
+
+    const getImageSrc = (img) => {
+        if (img && typeof img === 'object' && img._type === 'image') {
+            return urlFor(img).width(800).height(520).fit('crop').quality(80).auto('format').url()
+        }
+        return img
     }
 
     return (
@@ -79,7 +118,7 @@ function WorkGallery() {
                                             aria-label={`Open ${item.title}`}
                                         >
                                             <img
-                                                src={item.image}
+                                                src={getImageSrc(item.image)}
                                                 alt={item.title}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
@@ -97,7 +136,11 @@ function WorkGallery() {
             </div>
 
             <Lightbox
-                items={items}
+                items={items.map((item) => ({
+                    ...item,
+                    image: getImageSrc(item.image),
+                    full: getImageSrc(item.image),
+                }))}
                 activeIndex={activeIndex}
                 onClose={handleClose}
                 onPrev={handlePrev}

@@ -40,7 +40,7 @@ export default function Lightbox({ items, activeIndex, onClose, onPrev, onNext }
 
     return (
         <div
-            className="fixed inset-0 z-[60] bg-zinc-950/98 flex items-center justify-center animate__animated animate__fadeIn animate__faster backdrop-blur-3xl"
+            className="fixed inset-0 z-[60] bg-zinc-950/98 flex items-center justify-center backdrop-blur-3xl"
             onClick={onClose}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -88,13 +88,13 @@ export default function Lightbox({ items, activeIndex, onClose, onPrev, onNext }
                         src={current.videoUrl}
                         controls
                         playsInline
-                        className="max-w-full max-h-full object-contain drop-shadow-2xl shadow-black animate__animated animate__zoomIn pointer-events-auto select-none"
+                        className="max-w-full max-h-full object-contain drop-shadow-2xl shadow-black pointer-events-auto select-none"
                     />
                 ) : (
                     <img
                         src={current.full || current.image}
                         alt={current.alt || current.title}
-                        className="max-w-full max-h-full object-contain drop-shadow-2xl shadow-black animate__animated animate__zoomIn pointer-events-auto select-none"
+                        className="max-w-full max-h-full object-contain drop-shadow-2xl shadow-black pointer-events-auto select-none"
                     />
                 )}
 

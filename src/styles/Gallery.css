@@ -35,7 +35,7 @@
 
 .gallery-marquee-track.reverse
 {
-  animation: gallery-marquee-right 800s linear infinite;
+  animation: gallery-marquee-right 80s linear infinite;
 }
 
 .gallery-row
