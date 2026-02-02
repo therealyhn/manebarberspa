@@ -4,12 +4,12 @@ import CtaButton from '../ui/CtaButton'
 import { sanityClient, urlFor } from '../../lib/sanity'
 
 const fallbackServices = [
-    { image: service1, title: 'Klasik', price: 700, category: 'Sisanje' },
-    { image: service4, title: 'Fade', price: 900, category: 'Sisanje' },
-    { image: service5, title: 'Nularica', price: 400, category: 'Sisanje' },
-    { image: service3, title: 'Brada', price: 300, category: 'Brada' },
-    { image: service6, title: 'Brada na #0', price: 200, category: 'Brada' },
-    { image: service2, title: 'Dizajn', price: 200, category: 'Ostalo' },
+    { title: 'Klasik', price: 700, category: 'Sisanje' },
+    { title: 'Fade', price: 900, category: 'Sisanje' },
+    { title: 'Nularica', price: 400, category: 'Sisanje' },
+    { title: 'Brada', price: 300, category: 'Brada' },
+    { title: 'Brada na #0', price: 200, category: 'Brada' },
+    { title: 'Dizajn', price: 200, category: 'Ostalo' },
 ]
 
 const fallbackPriceGroups = [

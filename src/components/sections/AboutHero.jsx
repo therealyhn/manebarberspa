@@ -7,7 +7,6 @@ import 'animate.css'
 import fallbackLogo from '../../assets/logo-full-white.png'
 
 const fallbackContent = {
-    backgroundImage: fallbackBg,
     eyebrow: 'Predstavljam',
     logoImage: fallbackLogo,
     heading: 'Profesionalna izvrsnost u frizerstvu',

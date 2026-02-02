@@ -14,28 +14,24 @@ const fallbackSlides = [
     heading: "Dobrodosli na Mane's Barbershop Web Stranicu",
     subheading: 'Najbolje frizerske usluge u gradu',
     description: 'Profesionalni frizer za modernog dzentlmena',
-    image: slide1,
   },
   {
     eyebrow: 'Klasicne i moderne frizerske usluge',
     heading: 'Najbolji frizer',
     subheading: 'Precizni rezovi i tradicionalne tehnike',
     description: 'Kreiranje savrsenog stila za svakog klijenta',
-    image: slide2,
   },
   {
     eyebrow: 'Najbolje iskustvo',
     heading: 'Najbolja usluga',
     subheading: 'Prepustite se nasim jedinstvenim tretmanima',
     description: 'Podignite svoj stil uz nase vrhunske usluge',
-    image: slide3,
   },
   {
     eyebrow: 'Premium nega i stil',
     heading: 'Stil koji traje',
     subheading: 'Personalizovan pristup i preciznost u svakom detalju',
     description: 'Rezervisi termin i dozivi potpuno iskustvo',
-    image: slide4,
   },
 ];
 
@@ -124,7 +120,7 @@ function Carousel() {
         {slides.map((slide, index) => (
           <SwiperSlide key={`hero-slide-${index}`}>
             <div className="relative w-full h-screen">
-              {renderImage(slide.image, index, slide.heading || `Slide ${index + 1}`)}
+              {renderImage(slide.image, index, slide.heading)}
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/50 flex flex-col justify-center items-start px-4 sm:px-10 md:px-20 text-white text-left pt-16 sm:pt-0">
                 <div className="animate__animated animate__fadeInUp max-w-2xl">
                   <div className="w-16 h-px bg-third mb-4"></div>
