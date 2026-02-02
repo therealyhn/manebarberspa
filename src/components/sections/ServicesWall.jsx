@@ -1,4 +1,5 @@
-﻿import useInViewOnce from '../../hooks/useInViewOnce'
+﻿import { useEffect, useMemo, useState } from 'react'
+import useInViewOnce from '../../hooks/useInViewOnce'
 import CtaButton from '../ui/CtaButton'
 import service1 from '../../assets/service-10.webp'
 import service2 from '../../assets/service-2.png'
@@ -6,17 +7,18 @@ import service3 from '../../assets/service-3.png'
 import service4 from '../../assets/service-4.jpg'
 import service5 from '../../assets/service-5.jpg'
 import service6 from '../../assets/service-6.png'
+import { sanityClient, urlFor } from '../../lib/sanity'
 
-const services = [
-    { image: service1, title: 'Klasik' },
-    { image: service4, title: 'Fade' },
-    { image: service5, title: 'Nularica' },
-    { image: service3, title: 'Brada' },
-    { image: service6, title: 'Brada na #0' },
-    { image: service2, title: 'Dizajn' },
+const fallbackServices = [
+    { image: service1, title: 'Klasik', price: 700, category: 'Sisanje' },
+    { image: service4, title: 'Fade', price: 900, category: 'Sisanje' },
+    { image: service5, title: 'Nularica', price: 400, category: 'Sisanje' },
+    { image: service3, title: 'Brada', price: 300, category: 'Brada' },
+    { image: service6, title: 'Brada na #0', price: 200, category: 'Brada' },
+    { image: service2, title: 'Dizajn', price: 200, category: 'Ostalo' },
 ]
 
-const priceGroups = [
+const fallbackPriceGroups = [
     {
         title: 'Sisanje',
         items: [
@@ -41,8 +43,72 @@ const priceGroups = [
     },
 ]
 
+function buildPriceGroups(services) {
+    const groups = {
+        Sisanje: [],
+        Brada: [],
+        Ostalo: [],
+    }
+
+    services.forEach((service) => {
+        if (groups[service.category]) {
+            groups[service.category].push({ label: service.title, price: service.price })
+        }
+    })
+
+    return [
+        { title: 'Sisanje', items: groups.Sisanje },
+        { title: 'Brada', items: groups.Brada },
+        { title: 'Ostalo', items: groups.Ostalo },
+    ]
+}
+
 function ServicesWall() {
     const { ref, isVisible } = useInViewOnce({ threshold: 0.2 })
+    const [services, setServices] = useState(fallbackServices)
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                const data = await sanityClient.fetch(
+                    `*[_type == "servicesWall"][0]{
+                        services[]{
+                            name,
+                            price,
+                            category,
+                            image
+                        }
+                    }`
+                )
+                if (data?.services?.length) {
+                    setServices(
+                        data.services.map((item) => ({
+                            title: item.name,
+                            price: item.price,
+                            category: item.category,
+                            image: item.image,
+                        }))
+                    )
+                }
+            } catch (err) {
+                console.error('Sanity services fetch failed', err)
+            }
+        }
+
+        fetchServices()
+    }, [])
+
+    const priceGroups = useMemo(() => {
+        const hasCategory = services.some((service) => service.category)
+        return hasCategory ? buildPriceGroups(services) : fallbackPriceGroups
+    }, [services])
+
+    const getImageSrc = (img, index) => {
+        if (img && typeof img === 'object' && img._type === 'image') {
+            return urlFor(img).width(900).height(1200).fit('crop').quality(80).auto('format').url()
+        }
+        return img || fallbackServices[index]?.image
+    }
 
     return (
         <section ref={ref} className="relative w-full h-screen bg-bgprime flex items-center justify-center overflow-hidden">
@@ -77,7 +143,7 @@ function ServicesWall() {
 
                             {/* Clean Price List */}
                             <div className="space-y-6 mt-4">
-                                {priceGroups.map((group, idx) => (
+                                {priceGroups.map((group) => (
                                     <div key={group.title} className="space-y-2">
                                         <h3 className="text-lg font-prata text-prime-dark border-b border-black/10 pb-1">
                                             {group.title}
@@ -99,7 +165,7 @@ function ServicesWall() {
                     </div>
 
                     {/* Right Column: Image Grid */}
-                    <div className={`hidden lg:block lg:w-7/12 w-full ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-200ms' : 'opacity-0'}`}>
+                    <div className={`lg:w-7/12 w-full ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-200ms' : 'opacity-0'}`}>
                         <div className="grid grid-cols-3 gap-3 md:gap-4">
                             {services.map((service, idx) => (
                                 <div
@@ -108,9 +174,11 @@ function ServicesWall() {
                                 >
                                     <div className="aspect-[3/4] overflow-hidden">
                                         <img
-                                            src={service.image}
+                                            src={getImageSrc(service.image, idx)}
                                             alt={service.title}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:grayscale"
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                                     </div>
