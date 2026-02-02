@@ -84,7 +84,7 @@ function Carousel() {
           srcSet={`${imgUrlSmall} 900w, ${imgUrl} 1600w, ${imgUrlLarge} 2200w`}
           sizes="(max-width: 768px) 100vw, 100vw"
           alt={altText}
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[65%_20%] sm:object-center"
           loading={index === 0 ? 'eager' : 'lazy'}
           decoding="async"
           fetchpriority={index === 0 ? 'high' : 'auto'}
@@ -96,7 +96,7 @@ function Carousel() {
       <img
         src={image}
         alt={altText}
-        className="w-full h-full object-cover object-center"
+        className="w-full h-full object-cover object-[65%_20%] sm:object-center"
         loading={index === 0 ? 'eager' : 'lazy'}
         decoding="async"
         fetchpriority={index === 0 ? 'high' : 'auto'}

@@ -70,7 +70,7 @@ function AboutHero() {
             <img
                 src={bgSrc}
                 alt="About background"
-                className="absolute inset-0 w-full h-full object-cover object-center"
+                className="absolute inset-0 w-full h-full object-cover object-[60%_25%] sm:object-center"
                 loading="lazy"
                 decoding="async"
             />
