@@ -7,23 +7,24 @@ export default defineType({
   fields: [
     defineField({
       name: 'services',
-      title: 'Services',
+      title: 'Usluge',
       type: 'array',
       of: [
         {
           type: 'object',
           name: 'service',
-          title: 'Service',
+          title: 'Usluga',
+          description: 'npr. Klasik, Brada, Nularica',
           fields: [
             defineField({
               name: 'name',
-              title: 'Name',
+              title: 'Naziv',
               type: 'string',
               validation: (rule) => rule.required(),
             }),
             defineField({
               name: 'price',
-              title: 'Price',
+              title: 'Cena',
               type: 'number',
               validation: (rule) => rule.required().min(0),
             }),
@@ -42,7 +43,7 @@ export default defineType({
             }),
             defineField({
               name: 'image',
-              title: 'Image',
+              title: 'Slika',
               type: 'image',
               options: { hotspot: true },
             }),
