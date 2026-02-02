@@ -30,15 +30,15 @@ function Home() {
           <AboutHero />
         </section>
 
-        <section id="work" className="scroll-mt-24">
+        <section id="work" className="scroll-mt-10">
           <WorkGallery />
         </section>
 
-        <section id="booking" className="scroll-mt-24">
+        <section id="booking" className="scroll-mt-10">
           <BookForm />
         </section>
 
-        <section id="contact" className="scroll-mt-24">
+        <section id="contact" className="scroll-mt-10">
           <ContactForm />
         </section>
       </main>

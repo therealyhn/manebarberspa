@@ -34,10 +34,10 @@ function Navbar() {
                     <ul className="flex gap-8 uppercase">
                         <li><a href="#home" onClick={handleNavClick} className="text-light-gray hover:text-prime
                          transition-all duration-300 text-sm font-semibold font-prata uppercase">Početna</a></li>
-                        <li><a href="#about" onClick={handleNavClick} className="text-light-gray hover:text-prime
-                         transition-all duration-300 text-sm font-semibold font-prata uppercase">O meni</a></li>
                         <li><a href="#services" onClick={handleNavClick} className="text-light-gray hover:text-prime
                          transition-all duration-300 text-sm font-semibold font-prata uppercase">Usluge</a></li>
+                        <li><a href="#about" onClick={handleNavClick} className="text-light-gray hover:text-prime
+                         transition-all duration-300 text-sm font-semibold font-prata uppercase">O meni</a></li>
                         <li><a href="#work" onClick={handleNavClick} className="text-light-gray hover:text-prime
                          transition-all duration-300 text-sm font-semibold font-prata uppercase">Moji radovi</a></li>
                         <li><a href="#contact" onClick={handleNavClick} className="text-light-gray hover:text-prime
@@ -53,20 +53,20 @@ function Navbar() {
 
                 <div
                     className={`lg:hidden absolute top-full left-0 w-full bg-prime-dark shadow-md ${isMenuOpen
-                            ? 'animate__animated animate__fadeInDown'
-                            : 'animate__animated animate__fadeOutUp'
+                        ? 'animate__animated animate__fadeInDown'
+                        : 'animate__animated animate__fadeOutUp'
                         } ${!isMenuOpen && 'hidden'}`}
                 >
                     <ul className="flex flex-col items-center py-4">
                         <li className="py-2"><a href="#home" onClick={handleNavClick}
                             className="text-light-gray hover:text-white transition-all duration-300 
                         text-sm font-bold font-prata uppercase">Početna</a></li>
-                        <li className="py-2"><a href="#about" onClick={handleNavClick}
-                            className="text-light-gray hover:text-white transition-all duration-300 
-                        text-sm font-bold font-prata uppercase">O meni</a></li>
                         <li className="py-2"><a href="#services" onClick={handleNavClick}
                             className="text-light-gray hover:text-white transition-all duration-300 
                         text-sm font-bold font-prata uppercase">Usluge</a></li>
+                        <li className="py-2"><a href="#about" onClick={handleNavClick}
+                            className="text-light-gray hover:text-white transition-all duration-300 
+                        text-sm font-bold font-prata uppercase">O meni</a></li>
                         <li className="py-2"><a href="#work" onClick={handleNavClick}
                             className="text-light-gray hover:text-white transition-all duration-300 
                         text-sm font-bold font-prata uppercase">Moji radovi</a></li>

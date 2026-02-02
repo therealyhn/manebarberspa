@@ -1,22 +1,19 @@
 ﻿import useInViewOnce from '../../hooks/useInViewOnce'
 import CtaButton from '../ui/CtaButton'
-import PriceRow from '../ui/PriceRow'
 import service1 from '../../assets/service-10.webp'
 import service2 from '../../assets/service-2.png'
 import service3 from '../../assets/service-3.png'
 import service4 from '../../assets/service-4.jpg'
 import service5 from '../../assets/service-5.jpg'
 import service6 from '../../assets/service-6.png'
-import service7 from '../../assets/service-7.png'
 
 const services = [
-    { image: service1, title: 'Klasik', className: 'col-span-2' },
-    { image: service4, title: 'Fade', className: 'col-span-2' },
-    { image: service5, title: 'Nularica', className: 'col-span-2' },
-    { image: service3, title: 'Brada', className: 'col-span-3' },
-    { image: service6, title: 'Brada na #0', className: 'col-span-3' },
-    { image: service2, title: 'Dizajn', className: 'col-span-3' },
-    { image: service7, title: 'Obrve', className: 'col-span-3' },
+    { image: service1, title: 'Klasik' },
+    { image: service4, title: 'Fade' },
+    { image: service5, title: 'Nularica' },
+    { image: service3, title: 'Brada' },
+    { image: service6, title: 'Brada na #0' },
+    { image: service2, title: 'Dizajn' },
 ]
 
 const priceGroups = [
@@ -45,74 +42,83 @@ const priceGroups = [
 ]
 
 function ServicesWall() {
-    const { ref, isVisible } = useInViewOnce({ threshold: 0.3 })
+    const { ref, isVisible } = useInViewOnce({ threshold: 0.2 })
 
     return (
-        <section ref={ref} className="relative w-full min-h-screen bg-bgprime">
-            <div className="absolute inset-8 pointer-events-none"></div>
-
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-10 md:px-20 py-16">
-                <div className="flex flex-col justify-center lg:flex-row gap-10">
+        <section ref={ref} className="relative w-full h-screen bg-bgprime flex items-center justify-center overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-10 md:px-20 h-full flex flex-col justify-center">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center h-full max-h-[90vh]">
+                    {/* Left Column: Content & Price List */}
                     <div className="lg:w-5/12 flex flex-col justify-center">
-                        <div className={`space-y-6 ${isVisible ? 'animate__animated animate__fadeInUp' : 'opacity-0'}`}>
-                            <div className="w-16 h-px bg-black"></div>
-                            <p className="text-sm sm:text-lg uppercase tracking-widest text-second font-lato">
-                                Usluge & cenovnik
-                            </p>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-prime-dark font-prata uppercase">
-                                Najtrazenije usluge
-                            </h2>
-                            <p className="text-base sm:text-lg text-third-dark font-lato">
+                        <div className={`space-y-4 ${isVisible ? 'animate__animated animate__fadeInUp' : 'opacity-0'}`}>
+                            {/* Header Section */}
+                            <div>
+                                <div className="w-12 h-px bg-accent mb-3"></div>
+                                <p className="text-xs uppercase tracking-[0.2em] text-prime-dark/70 font-lato mb-1">
+                                    Usluge & cenovnik
+                                </p>
+                                <h2 className="text-3xl md:text-4xl font-bold text-prime-dark font-prata uppercase leading-tight">
+                                    Najtrazenije <br /> usluge
+                                </h2>
+                            </div>
+
+                            <p className="text-base text-third-dark/80 font-lato leading-relaxed max-w-sm">
                                 Precizan rez, profesionalan pristup i jasne cene. Sve na jednom mestu.
                             </p>
-                            <CtaButton
-                                href="#booking"
-                                label="Zakazi termin"
-                                className="bg-second-dark text-white px-8 py-3 rounded-sm uppercase text-sm"
-                                overlayClassName="bg-prime-dark"
-                            />
 
-                            <div className="border border-frame/40 rounded-sm p-6">
-                                <div className="flex items-center justify-between mb-4">
-                                    <span className="text-lg font-bold uppercase tracking-widest text-third-dark">Cenovnik</span>
-                                    <span className="w-10 h-px bg-black"></span>
-                                </div>
-                                <div className="flex flex-col gap-6">
-                                    {priceGroups.map((group) => (
-                                        <div key={group.title} className="flex flex-col gap-3">
-                                            <h3 className="text-base font-semibold border-b border-black/20 uppercase tracking-widest text-third-dark font-lato">
-                                                {group.title}
-                                            </h3>
+                            <div className="pt-1 pb-4">
+                                <CtaButton
+                                    href="#booking"
+                                    label="Zakazi termin"
+                                    className="bg-prime-dark text-white px-8 py-3 rounded-sm uppercase text-[10px] tracking-widest hover:text-prime-dark hover:bg-accent transition-colors duration-300"
+                                    overlayClassName="bg-white"
+                                />
+                            </div>
+
+                            {/* Clean Price List */}
+                            <div className="space-y-6 mt-4">
+                                {priceGroups.map((group, idx) => (
+                                    <div key={group.title} className="space-y-2">
+                                        <h3 className="text-lg font-prata text-prime-dark border-b border-black/10 pb-1">
+                                            {group.title}
+                                        </h3>
+                                        <div className="space-y-1">
                                             {group.items.map((item) => (
-                                                <PriceRow key={item.label} label={item.label} price={item.price} />
+                                                <div key={item.label} className="group flex justify-between items-center py-1 border-b border-light-gray/50 hover:pl-2 transition-all duration-300">
+                                                    <span className="font-lato text-sm text-third-dark group-hover:text-prime-dark transition-colors">{item.label}</span>
+                                                    <span className="font-prata text-sm font-semibold text-prime-dark">
+                                                        {item.price} <span className="text-[10px] text-third-dark">RSD</span>
+                                                    </span>
+                                                </div>
                                             ))}
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
 
-                    <div className="lg:w-7/12 flex items-center justify-center">
-                        <div className="grid grid-cols-6 gap-4 w-full max-w-3xl">
-                            {services.map((service) => (
+                    {/* Right Column: Image Grid */}
+                    <div className={`lg:w-7/12 w-full ${isVisible ? 'animate__animated animate__fadeInUp animate__delay-200ms' : 'opacity-0'}`}>
+                        <div className="grid grid-cols-3 gap-3 md:gap-4">
+                            {services.map((service, idx) => (
                                 <div
                                     key={service.title}
-                                    className={`group overflow-hidden rounded-sm border border-frame/40 bg-white ${service.className} ${isVisible ? 'animate__animated animate__fadeInUp' : 'opacity-0'
-                                        }`}
+                                    className={`relative group overflow-hidden rounded-sm bg-gray-100 ${idx % 2 !== 0 ? 'mt-4' : ''}`}
                                 >
-                                    <div className="relative h-28 sm:h-32 md:h-36">
+                                    <div className="aspect-[3/4] overflow-hidden">
                                         <img
                                             src={service.image}
                                             alt={service.title}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:grayscale"
                                         />
-                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                                     </div>
-                                    <div className="px-4 py-4 flex items-center  justify-center">
-                                        <h3 className="text-lg font-semibold text-prime-dark font-prata">
+
+                                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                        <span className="text-white font-prata text-sm tracking-wide border-b border-accent pb-1 inline-block">
                                             {service.title}
-                                        </h3>
+                                        </span>
                                     </div>
                                 </div>
                             ))}
