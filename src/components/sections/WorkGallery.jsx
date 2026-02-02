@@ -81,9 +81,16 @@ function WorkGallery() {
         setActiveIndex((prev) => (prev + 1) % items.length)
     }
 
-    const getImageSrc = (img) => {
+    const getThumbSrc = (img) => {
         if (img && typeof img === 'object' && img._type === 'image') {
             return urlFor(img).width(800).height(520).fit('crop').quality(80).auto('format').url()
+        }
+        return img
+    }
+
+    const getFullSrc = (img) => {
+        if (img && typeof img === 'object' && img._type === 'image') {
+            return urlFor(img).width(2400).height(1600).fit('max').quality(90).auto('format').url()
         }
         return img
     }
@@ -118,7 +125,7 @@ function WorkGallery() {
                                             aria-label={`Open ${item.title}`}
                                         >
                                             <img
-                                                src={getImageSrc(item.image)}
+                                                src={getThumbSrc(item.image)}
                                                 alt={item.title}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
@@ -138,8 +145,8 @@ function WorkGallery() {
             <Lightbox
                 items={items.map((item) => ({
                     ...item,
-                    image: getImageSrc(item.image),
-                    full: getImageSrc(item.image),
+                    image: getThumbSrc(item.image),
+                    full: getFullSrc(item.image),
                 }))}
                 activeIndex={activeIndex}
                 onClose={handleClose}

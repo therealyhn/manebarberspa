@@ -1,12 +1,10 @@
-﻿import { useEffect, useRef } from "react";
+﻿import { useEffect } from "react";
 import useEscapeKey from "../../hooks/useEscapeKey";
 import useScrollLock from "../../hooks/useScrollLock";
 import "animate.css";
 
 export default function Lightbox({ items, activeIndex, onClose, onPrev, onNext }) {
     const shouldShow = items && items.length > 0 && activeIndex != null;
-    const touchStartX = useRef(null);
-    const touchEndX = useRef(null);
 
     useEscapeKey(onClose, shouldShow);
     useScrollLock(shouldShow);
@@ -25,25 +23,10 @@ export default function Lightbox({ items, activeIndex, onClose, onPrev, onNext }
 
     const current = items[activeIndex];
 
-    const handleTouchStart = (e) => {
-        touchStartX.current = e.changedTouches[0].screenX;
-    };
-
-    const handleTouchEnd = (e) => {
-        touchEndX.current = e.changedTouches[0].screenX;
-        const delta = touchStartX.current - touchEndX.current;
-        if (Math.abs(delta) > 50) {
-            if (delta > 0) onNext();
-            if (delta < 0) onPrev();
-        }
-    };
-
     return (
         <div
             className="fixed inset-0 z-[60] bg-zinc-950/98 flex items-center justify-center backdrop-blur-3xl"
             onClick={onClose}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
         >
             {/* CLOSE BUTTON */}
             <button
@@ -98,7 +81,7 @@ export default function Lightbox({ items, activeIndex, onClose, onPrev, onNext }
                     />
                 )}
 
-                {/* CAPTION & COUNTER */}
+                {/* CAPTION & COUNTER - Elegant Bottom Style */}
                 <div className="absolute bottom-6 md:bottom-12 left-0 w-full text-center pointer-events-none">
                     <div className="inline-block bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
                         <span className="text-white/40 text-xs font-mono tracking-widest mr-4 border-r border-white/10 pr-4">
