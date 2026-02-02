@@ -74,7 +74,7 @@ function WorkGallery() {
                                         <button
                                             key={`${item.index}-${idx}`}
                                             type="button"
-                                            className="group relative w-48 sm:w-56 md:w-64 h-32 sm:h-36 md:h-40 overflow-hidden rounded-sm border border-frame/40 bg-black/30 text-left"
+                                            className="group relative w-48 sm:w-56 md:w-[300px] h-32 sm:h-40 md:h-48 overflow-hidden rounded-sm border border-frame/40 bg-black/30 text-left"
                                             onClick={() => handleOpen(item.index)}
                                             aria-label={`Open ${item.title}`}
                                         >
